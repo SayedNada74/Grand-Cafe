@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #FAF6F0;
+    --color-text: #120D0A;
+  }
+  
+  .dark {
+    --color-bg: #120D0A;
+    --color-text: #FAF6F0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  body.font-ar {
+    line-height: 1.8;
+  }
+
+  body.font-en {
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.35 !important;
+  }
+
+  p {
+    line-height: 1.8;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(18, 13, 10, 0.05);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(250, 246, 240, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C68B59;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Subtle Shimmer effect for buttons & badges */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(212,175,55,0) 0%, rgba(212,175,55,0.3) 50%, rgba(212,175,55,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Custom Hide Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
