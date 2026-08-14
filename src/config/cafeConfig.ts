@@ -22,11 +22,11 @@ export const cafeConfig = {
       en: "Tell El Kebir, Ismailia"
     }
   },
-  whatsappNumber: "01070313242",
+  whatsappNumber: "201070313242",
   phoneNumber: "01070313242",
   openingHours: {
-    ar: "يومياً: 9:00 صباحاً - 1:00 صباحاً",
-    en: "Daily: 9:00 AM - 1:00 AM"
+    ar: "يومياً: 12:00 مساءً - 2:00 صباحاً",
+    en: "Daily: 12:00 PM - 2:00 AM"
   },
   features: {
     airConditioned: true,
