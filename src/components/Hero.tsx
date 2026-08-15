@@ -91,7 +91,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       <div className="absolute bottom-6 inset-x-0 flex justify-center z-10 pointer-events-none">
         <a
           href="#experience"
-          className="p-0 rounded-full text-cafe-gold hover:text-white transition-colors animate-bounce pointer-events-auto"
+          className="p-1 rounded-full text-cafe-gold hover:text-white transition-colors animate-bounce pointer-events-auto"
           aria-label="Scroll down"
         >
           <ChevronDown className="w-6 h-6" />
