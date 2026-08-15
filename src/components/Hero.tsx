@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
-      
+
       {/* Background Image with Dark Vignette & Gradient */}
       <div className="absolute inset-0 z-0">
         <img
@@ -29,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
       {/* Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        
+
         {/* Eyebrow Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cafe-amber/15 border border-cafe-amber/30 backdrop-blur-md mb-6 animate-fadeIn">
           <Sparkles className="w-4 h-4 text-cafe-gold animate-spin" style={{ animationDuration: '6s' }} />
@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
         {/* Dual Call To Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-12">
-          
+
           {/* Explore Menu CTA */}
           <a
             href="#menu"
@@ -87,14 +87,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
       </div>
 
-      {/* Scroll Down Indicator */}
-      <a
-        href="#experience"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 p-2 rounded-full text-cafe-gold hover:text-white transition-colors animate-bounce"
-        aria-label="Scroll down"
-      >
-        <ChevronDown className="w-6 h-6" />
-      </a>
+      {/* Scroll Down Indicator (100% Centered on All Screens & Viewports) */}
+      <div className="absolute bottom-4 inset-x-0 flex justify-center z-10 pointer-events-none">
+        <a
+          href="#experience"
+          className="p-0 rounded-full text-cafe-gold hover:text-white transition-colors animate-bounce pointer-events-auto"
+          aria-label="Scroll down"
+        >
+          <ChevronDown className="w-6 h-6" />
+        </a>
+      </div>
 
     </section>
   );
