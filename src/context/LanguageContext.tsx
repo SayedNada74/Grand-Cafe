@@ -71,6 +71,8 @@ const translations: Record<string, Record<Language, string>> = {
   'menu.all': { ar: 'الكل', en: 'All' },
   'menu.noResults': { ar: 'ملقينامش أصناف تطابق بحثك', en: 'No menu items match your search' },
   'menu.viewOriginal': { ar: 'عرض صورة المنيو الورقي الأصلي', en: 'View Original Physical Menu' },
+  'menu.viewMore': { ar: 'عرض المزيد', en: 'View More' },
+  'menu.showLess': { ar: 'عرض أقل', en: 'Show Less' },
   'menu.featuredDrinksTitle': { ar: 'المشاريب الأكثر طلباً', en: 'Top Signature Drinks' },
   'menu.featuredDessertsTitle': { ar: 'الحلويات المميزة', en: 'Featured Signature Desserts' },
   'menu.currency': { ar: 'ج.م', en: 'EGP' },
