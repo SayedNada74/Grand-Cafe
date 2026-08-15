@@ -68,6 +68,7 @@ export const SpotToggle: React.FC = () => {
               <img
                 src={spot === 'indoor' ? cafeConfig.assets.indoorSeating : cafeConfig.assets.outdoorSeating}
                 alt={spot === 'indoor' ? 'Indoor Seating' : 'Outdoor Seating'}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-cafe-espresso/80 via-transparent to-transparent" />

@@ -85,6 +85,7 @@ export const InstagramSection: React.FC = () => {
               <img
                 src={post.image}
                 alt={lang === 'ar' ? post.titleAr : post.titleEn}
+                loading="lazy"
                 className={`w-full h-full object-cover ${getFocalPosition(post.id)} group-hover:scale-105 transition-transform duration-700`}
               />
             </div>

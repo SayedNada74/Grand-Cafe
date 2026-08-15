@@ -1,19 +1,102 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/assets/Logo.jpeg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grand Cafe | جراند كافيه - Your Coffee. Your Place.</title>
-    <meta name="description" content="جراند كافيه (Grand Cafe) - قهوتك، قعدتك، مكانك. أفضل مكان للقهوة المختصة، المشروبات، الحلويات، والمذاكرة أو الاجتماعات في التل الكبير، الإسماعيلية. Est. 2014." />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-cafe-cream text-cafe-espresso dark:bg-cafe-espresso dark:text-cafe-cream transition-colors duration-300 font-ar antialiased selection:bg-cafe-amber selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/jpeg" href="/assets/Logo.jpeg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="google-site-verification: google4d61655386095351.html" />
+
+  <!-- Primary SEO Metadata -->
+  <title>Grand Cafe | جراند كافيه - كافيه ومشروبات وحلويات في التل الكبير</title>
+  <meta name="description"
+    content="جراند كافيه (Grand Cafe) في التل الكبير، الإسماعيلية. مكانك المفضل لتناول القهوة والمشروبات الباردة والساخنة والحلويات، وقضاء وقت ممتع أو العمل والمذاكرة وحجز المناسبات." />
+  <link rel="canonical" href="https://grand-cafe.vercel.app/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Grand Cafe | جراند كافيه" />
+  <meta property="og:title" content="Grand Cafe | جراند كافيه - كافيه ومشروبات وحلويات في التل الكبير" />
+  <meta property="og:description"
+    content="جراند كافيه (Grand Cafe) في التل الكبير، الإسماعيلية. مكانك المفضل للقهوة، المشروبات، الحلويات، العمل والمذاكرة وحجز المناسبات." />
+  <meta property="og:url" content="https://grand-cafe.vercel.app/" />
+  <meta property="og:image" content="https://grand-cafe.vercel.app/assets/Logo.jpeg" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:image:alt" content="جراند كافيه - Grand Cafe Logo" />
+  <meta property="og:locale" content="ar_EG" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter / X Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Grand Cafe | جراند كافيه - كافيه ومشروبات وحلويات في التل الكبير" />
+  <meta name="twitter:description"
+    content="جراند كافيه في التل الكبير، الإسماعيلية. قهوة ممتازة، مشروبات وحلويات، جلسات مكيفة وخارجية." />
+  <meta name="twitter:image" content="https://grand-cafe.vercel.app/assets/Logo.jpeg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Schema.org JSON-LD Structured Data for Local Business -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CafeOrCoffeeShop",
+      "name": "Grand Cafe",
+      "alternateName": "جراند كافيه",
+      "image": "https://grand-cafe.vercel.app/assets/Logo.jpeg",
+      "@id": "https://grand-cafe.vercel.app/#cafe",
+      "url": "https://grand-cafe.vercel.app/",
+      "telephone": "+201070313242",
+      "priceRange": "$$",
+      "servesCuisine": ["Coffee", "Beverages", "Desserts"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "الحماده أمام السنترال",
+        "addressLocality": "التل الكبير",
+        "addressRegion": "الإسماعيلية",
+        "addressCountry": "EG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.5585222,
+        "longitude": 31.7853341
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "12:00",
+          "closes": "02:00"
+        }
+      ],
+      "hasMenu": "https://grand-cafe.vercel.app/#menu",
+      "sameAs": [
+        "https://www.instagram.com/grand.cafe0?igsh=ZHRyc2wxamVzOXRx",
+        "https://www.facebook.com/share/1EoeRNkkmz/",
+        "https://www.google.com/maps/place/%D8%AC%D8%B1%D8%A7%D9%86%D8%AF+%D9%83%D8%A7%D9%81%D9%8A%D9%87%7C+Grand+cafe%D8%8C+%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D8%AD%D9%87+%D8%A7%D9%85%D8%A7%D9%85+%D8%A7%D9%84%D8%B3%D9%8BDD8%B1%D8%A7%D9%84,+Tell+El+Kebir,+Ismailia+Governorate%E2%80%AD/@30.5585222,31.7853341,16z/data=!4m6!3m5!1s0x14f8198d0bc526b9:0xaccd1e8f73bd1d80!8m2!3d30.5585222!4d31.7853341!16s%2Fg%2F1q62kbdvz?hl=en-EG&gl=eg"
+      ]
+    }
+    </script>
+</head>
+
+<body
+  class="bg-cafe-cream text-cafe-espresso dark:bg-cafe-espresso dark:text-cafe-cream transition-colors duration-300 font-ar antialiased selection:bg-cafe-amber selection:text-white">
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

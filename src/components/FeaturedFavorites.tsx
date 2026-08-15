@@ -61,6 +61,7 @@ export const FeaturedFavorites: React.FC = () => {
                     <img
                       src={item.image}
                       alt={lang === 'ar' ? item.nameAr : item.nameEn}
+                      loading="lazy"
                       className={`w-full h-full object-cover ${getFocalPosition(item.id)} group-hover:scale-105 transition-transform duration-500`}
                     />
 
