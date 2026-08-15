@@ -88,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       </div>
 
       {/* Scroll Down Indicator (100% Centered on All Screens & Viewports) */}
-      <div className="absolute bottom-4 inset-x-0 flex justify-center z-10 pointer-events-none">
+      <div className="absolute bottom-6 inset-x-0 flex justify-center z-10 pointer-events-none">
         <a
           href="#experience"
           className="p-0 rounded-full text-cafe-gold hover:text-white transition-colors animate-bounce pointer-events-auto"
