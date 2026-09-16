@@ -25,7 +25,7 @@ export const InstagramSection: React.FC = () => {
       id: 1,
       type: 'video',
       mediaSrc: '/assets/instagram/post1_reel.mp4',
-      postUrl: 'https://www.instagram.com/p/DZVnyOigqir/?stkn=dzJjOXA4d25xMzF2',
+      postUrl: 'https://www.instagram.com/reel/DOs_RlhjHYc/?stkn=MXY1bHo1N3U2Z3FvZQ==',
       titleAr: 'أجواء ولمة جراند كافيه الساحرة',
       titleEn: 'Grand Cafe Cozy Ambiance',
       tagAr: 'ريل • أجواء الكافيه',
@@ -37,7 +37,7 @@ export const InstagramSection: React.FC = () => {
       id: 2,
       type: 'image',
       mediaSrc: '/assets/instagram/post2_croissant.jpeg',
-      postUrl: 'https://www.instagram.com/reel/DOs_RlhjHYc/?stkn=MXY1bHo1N3U2Z3FvZQ==',
+      postUrl: 'https://www.instagram.com/p/DZVnyOigqir/?stkn=dzJjOXA4d25xMzF2',
       titleAr: 'ساندوتش كرواسون تركي مع آيس درينك مثلج',
       titleEn: 'Turkey Croissant & Layered Iced Drink',
       tagAr: 'فطار وروقان الصباح',
@@ -73,12 +73,12 @@ export const InstagramSection: React.FC = () => {
 
   return (
     <section id="instagram" className="py-24 bg-cafe-warm/40 dark:bg-cafe-dark border-t border-cafe-amber/15 relative overflow-hidden transition-colors duration-300">
-      
+
       {/* Background Subtle Gradient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-pink-500/5 via-amber-500/5 to-purple-500/5 blur-3xl pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <ScrollReveal direction="up">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">

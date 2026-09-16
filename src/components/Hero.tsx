@@ -406,8 +406,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
                 {/* Showcase Navigation Indicators & Clickable Section Link */}
                 <div className="pt-3 border-t border-cafe-amber/15 flex items-center justify-between gap-2">
-                  {/* Spaced-Out Large-Hitbox Indicator Buttons (No accidental misclicks on mobile) */}
-                  <div className="flex items-center gap-1 sm:gap-1.5">
+                  {/* Spaced-Out Responsive Indicator Buttons */}
+                  <div className="flex items-center gap-0.5 sm:gap-1.5">
                     {showcaseItems.map((item, idx) => (
                       <button
                         type="button"
@@ -416,22 +416,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                           e.stopPropagation();
                           setActiveIndex(idx);
                         }}
-                        className="p-2 sm:p-2.5 flex items-center justify-center focus:outline-none group/dot min-w-[36px] min-h-[36px] rounded-full hover:bg-cafe-amber/10 transition-colors"
+                        className="p-1 sm:p-2 flex items-center justify-center focus:outline-none group/dot min-w-[26px] min-h-[26px] sm:min-w-[34px] sm:min-h-[34px] rounded-full hover:bg-cafe-amber/10 transition-colors"
                         aria-label={`Showcase item ${idx + 1}`}
                         title={lang === 'ar' ? item.nameAr : item.nameEn}
                       >
                         <span
-                          className={`h-2.5 rounded-full transition-all duration-300 ${
+                          className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 ${
                             idx === activeIndex
-                              ? 'w-7 sm:w-8 bg-cafe-gold shadow-md shadow-cafe-gold/50'
-                              : 'w-2.5 sm:w-3 bg-cafe-amber/30 dark:bg-white/20 group-hover/dot:bg-cafe-amber/60 group-hover/dot:scale-125'
+                              ? 'w-5 sm:w-8 bg-cafe-gold shadow-md shadow-cafe-gold/50'
+                              : 'w-2 sm:w-2.5 bg-cafe-amber/30 dark:bg-white/20 group-hover/dot:bg-cafe-amber/60 group-hover/dot:scale-125'
                           }`}
                         />
                       </button>
                     ))}
                   </div>
 
-                  {/* Working Clickable Navigation Link to Target Section */}
+                  {/* Working Clickable Navigation Link with responsive text and perfect proportions */}
                   <button
                     type="button"
                     onClick={(e) => {
@@ -439,9 +439,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                       const target = document.querySelector(getTargetSection(currentItem.id));
                       if (target) target.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="text-xs font-extrabold text-cafe-amber hover:text-cafe-gold transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cafe-amber/10 hover:bg-cafe-amber/20 border border-cafe-amber/20 group/link cursor-pointer flex-shrink-0"
+                    className="text-[11px] sm:text-xs font-extrabold text-cafe-amber dark:text-cafe-gold hover:text-cafe-gold transition-colors flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-cafe-amber/10 hover:bg-cafe-amber/20 dark:bg-white/10 dark:hover:bg-white/20 border border-cafe-amber/25 dark:border-white/20 group/link cursor-pointer flex-shrink-0 whitespace-nowrap shadow-sm"
                   >
-                    <span>{lang === 'ar' ? 'مشروبات ومخبوزات مميزة' : 'Signature Choices'}</span>
+                    <span className="sm:hidden">{lang === 'ar' ? 'استكشف المزيد' : 'Explore More'}</span>
+                    <span className="hidden sm:inline">{lang === 'ar' ? 'مشروبات ومخبوزات مميزة' : 'Signature Choices'}</span>
                     {isRtl ? (
                       <ArrowLeft className="w-3.5 h-3.5 transform group-hover/link:-translate-x-1 transition-transform" />
                     ) : (
