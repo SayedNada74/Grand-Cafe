@@ -27,8 +27,9 @@ export default {
         }
       },
       fontFamily: {
-        en: ['Outfit', 'Plus Jakarta Sans', 'Inter', 'sans-serif'],
-        ar: ['Cairo', 'Alexandria', 'Tajawal', 'sans-serif'],
+        sans: ['Outfit', 'Alexandria', 'Plus Jakarta Sans', 'sans-serif'],
+        en: ['Outfit', 'Alexandria', 'Plus Jakarta Sans', 'Inter', 'sans-serif'],
+        ar: ['Outfit', 'Alexandria', 'Cairo', 'sans-serif'],
       },
       boxShadow: {
         'warm-sm': '0 2px 10px rgba(74, 53, 37, 0.06)',

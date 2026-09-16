@@ -2,7 +2,7 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { cafeConfig } from '../config/cafeConfig';
-import { Instagram, Facebook, MapPin, Phone, MessageCircle, Heart, Globe, Sun, Moon } from 'lucide-react';
+import { Instagram, Facebook, MapPin, Phone, MessageCircle, Heart, Globe, Sun, Moon, FileText, Clock } from 'lucide-react';
 
 interface FooterProps {
   onOpenOriginalMenu: () => void;
@@ -17,10 +17,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenOriginalMenu }) => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-cafe-amber/15">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-cafe-amber/15">
           
-          {/* Brand Info Column */}
-          <div className="md:col-span-5 space-y-4">
+          {/* Column 1: Brand Info Column */}
+          <div className="lg:col-span-4 sm:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <img
                 src={cafeConfig.assets.logo}
@@ -84,10 +84,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenOriginalMenu }) => {
             </div>
           </div>
 
-          {/* Quick Links Column */}
-          <div className="md:col-span-3 space-y-3">
+          {/* Column 2: Explore Cafe Column (Chronological Page Order) */}
+          <div className="lg:col-span-2 space-y-3">
             <h4 className="text-sm font-bold text-cafe-espresso dark:text-white uppercase tracking-wider mb-4 border-b border-cafe-amber/20 pb-2 inline-block">
-              {t('footer.quickLinks')}
+              {t('footer.explore')}
             </h4>
             <ul className="space-y-2.5 text-xs font-medium text-cafe-muted-light dark:text-cafe-warm/80">
               <li>
@@ -106,43 +106,75 @@ export const Footer: React.FC<FooterProps> = ({ onOpenOriginalMenu }) => {
                 </a>
               </li>
               <li>
+                <a href="#reviews" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors">
+                  {lang === 'ar' ? 'آراء وتقييمات العملاء' : 'Customer Reviews'}
+                </a>
+              </li>
+              <li>
+                <a href="#location" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors">
+                  {t('nav.location')}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Menu & Specials Column */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="text-sm font-bold text-cafe-espresso dark:text-white uppercase tracking-wider mb-4 border-b border-cafe-amber/20 pb-2 inline-block">
+              {t('footer.menuAndOrders')}
+            </h4>
+            <ul className="space-y-2.5 text-xs font-medium text-cafe-muted-light dark:text-cafe-warm/80">
+              <li>
                 <a href="#menu" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors">
                   {t('nav.menu')}
                 </a>
               </li>
               <li>
-                <a href="#reservation" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors">
-                  {t('nav.reservation')}
+                <a href="#popular" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors">
+                  {lang === 'ar' ? 'المشاريب الأكثر طلباً' : 'Top Signature Drinks'}
+                </a>
+              </li>
+              <li>
+                <a href="#bakery" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors">
+                  {lang === 'ar' ? 'مخبوزات وحلويات جراند' : 'Grand Bakery & Treats'}
                 </a>
               </li>
               <li>
                 <button
                   onClick={onOpenOriginalMenu}
-                  className="hover:text-cafe-gold transition-colors text-cafe-amber"
+                  className="hover:text-cafe-gold transition-colors text-cafe-amber inline-flex items-center gap-1.5"
                 >
-                  📜 {t('nav.originalMenu')}
+                  <FileText className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>{t('nav.originalMenu')}</span>
                 </button>
+              </li>
+              <li>
+                <a href="#reservation" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors font-bold text-cafe-amber">
+                  {t('nav.reservation')}
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Contact & Hours Column */}
-          <div className="md:col-span-4 space-y-3">
+          {/* Column 4: Contact, Working Hours & Settings */}
+          <div className="lg:col-span-3 space-y-3">
             <h4 className="text-sm font-bold text-cafe-espresso dark:text-white uppercase tracking-wider mb-4 border-b border-cafe-amber/20 pb-2 inline-block">
-              {t('nav.location')}
+              {t('footer.visitAndHours')}
             </h4>
-            <div className="space-y-2.5 text-xs text-cafe-muted-light dark:text-cafe-warm/80">
+            <div className="space-y-3 text-xs text-cafe-muted-light dark:text-cafe-warm/80">
               <p className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-cafe-amber dark:text-cafe-gold flex-shrink-0 mt-0.5" />
-                <span>{cafeConfig.location.address[isRtl ? 'ar' : 'en']}</span>
+                <span className="leading-relaxed">{cafeConfig.location.address[isRtl ? 'ar' : 'en']}</span>
               </p>
               <p className="flex items-center gap-2">
-                <Instagram className="w-4 h-4 text-cafe-amber dark:text-cafe-gold flex-shrink-0" />
-                <span>{cafeConfig.instagram.handle}</span>
+                <Clock className="w-4 h-4 text-cafe-amber dark:text-cafe-gold flex-shrink-0" />
+                <span className="font-semibold text-cafe-espresso dark:text-white">{cafeConfig.openingHours[isRtl ? 'ar' : 'en']}</span>
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-cafe-amber dark:text-cafe-gold flex-shrink-0" />
-                <span>{cafeConfig.phoneNumber}</span>
+                <a href={`tel:${cafeConfig.phoneNumber}`} className="hover:text-cafe-amber font-mono font-bold">
+                  {cafeConfig.phoneNumber}
+                </a>
               </p>
             </div>
 
@@ -158,6 +190,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenOriginalMenu }) => {
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-lg bg-cafe-surface-light dark:bg-white/10 text-cafe-espresso dark:text-white border border-cafe-amber/20 hover:border-cafe-amber"
+                aria-label="Toggle Theme"
               >
                 {isDark ? <Sun className="w-4 h-4 text-cafe-gold" /> : <Moon className="w-4 h-4 text-cafe-mocha" />}
               </button>

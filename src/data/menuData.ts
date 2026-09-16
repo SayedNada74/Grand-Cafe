@@ -10,12 +10,20 @@ export interface MenuItem {
   descriptionEn?: string;
 }
 
+export interface AddOn {
+  id: string;
+  nameAr: string;
+  nameEn: string;
+  price: number;
+}
+
 export interface MenuCategory {
   id: string;
   nameAr: string;
   nameEn: string;
   iconName: string;
   items: MenuItem[];
+  addOns?: AddOn[];
 }
 
 export const menuCategories: MenuCategory[] = [
@@ -104,6 +112,24 @@ export const menuCategories: MenuCategory[] = [
       { id: "d7", nameAr: "وافل", nameEn: "Belgian Waffle", price: 60, featuredDessert: true, image: "/assets/waffle.jpeg", descriptionAr: "وافل بلجيكي مقرمش طازج يقدم مع النوتيلا وصوص الفواكه.", descriptionEn: "Crispy Golden Belgian waffle with chocolate drizzle." },
       { id: "d8", nameAr: "ميني بان كيك", nameEn: "Mini Pancakes", price: 60 },
     ]
+  },
+  {
+    id: "croissant",
+    nameAr: "كرواسون",
+    nameEn: "Croissant",
+    iconName: "Croissant",
+    items: [
+      { id: "cr1", nameAr: "كرواسون ساده", nameEn: "Plain Croissant", price: 65, image: "/assets/croissant_plain.jpg", descriptionAr: "كرواسون فرنسي هش وطازج بالزبدة الطبيعية.", descriptionEn: "Freshly baked flaky French butter croissant." },
+      { id: "cr2", nameAr: "كرواسون نوتيلا", nameEn: "Nutella Croissant", price: 80, image: "/assets/croissant_nutella.jpg", descriptionAr: "محشو ومغطى بشوكولاتة النوتيلا الغنية واللذيذة.", descriptionEn: "Stuffed and drizzled with rich decadent Nutella." },
+      { id: "cr3", nameAr: "كرواسون تركى ( فصوص رومى )", nameEn: "Smoked Turkey Croissant", price: 90, image: "/assets/croissant_turkey.jpg", descriptionAr: "محشو فصوص رومي مدخن فاخر مع صوصات خاصة.", descriptionEn: "Premium smoked turkey breast slices in a flaky croissant." },
+      { id: "cr4", nameAr: "كرواسون ميكس تشيز", nameEn: "Mix Cheese Croissant", price: 90, image: "/assets/croissant_mix_cheese.jpeg", descriptionAr: "تشكيلة من أشهى أنواع الجبن الذائبة واللذيذة.", descriptionEn: "Melted blend of premium cheeses." },
+      { id: "cr5", nameAr: "كرواسون روز بيف", nameEn: "Roast Beef Croissant", price: 90, descriptionAr: "شرائح روز بيف مدخن عالية الجودة بتتبيلة خاصة.", descriptionEn: "Tender seasoned roast beef slices in warm croissant." },
+    ],
+    addOns: [
+      { id: 'addon-doritos', nameAr: 'دوريتوس', nameEn: 'Doritos', price: 20 },
+      { id: 'addon-cheddar', nameAr: 'صوص شيدر', nameEn: 'Cheddar Sauce', price: 20 },
+      { id: 'addon-olives', nameAr: 'زيتون', nameEn: 'Olives', price: 20 },
+    ],
   },
   {
     id: "milkshake",
@@ -218,3 +244,26 @@ export const getFeaturedDesserts = (): MenuItem[] => {
     .map(id => allItems.find(item => item.id === id))
     .filter((item): item is MenuItem => item !== undefined);
 };
+
+// Helper to extract the 6 most popular drinks & desserts
+export const getPopularItems = (): MenuItem[] => {
+  const popularOrder = ["c8", "ic1", "ms3", "d2", "d3", "d7"];
+  const allItems: MenuItem[] = [];
+  menuCategories.forEach(cat => allItems.push(...cat.items));
+  
+  return popularOrder
+    .map(id => allItems.find(item => item.id === id))
+    .filter((item): item is MenuItem => item !== undefined);
+};
+
+// Helper to extract featured bakery/croissant items
+export const getBakeryFeaturedItems = (): MenuItem[] => {
+  const bakeryOrder = ["cr1", "cr2", "cr3", "cr4", "cr5"];
+  const allItems: MenuItem[] = [];
+  menuCategories.forEach(cat => allItems.push(...cat.items));
+  
+  return bakeryOrder
+    .map(id => allItems.find(item => item.id === id))
+    .filter((item): item is MenuItem => item !== undefined);
+};
+

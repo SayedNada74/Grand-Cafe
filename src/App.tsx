@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
+import { CartProvider } from './context/CartContext';
 import { Navbar } from './components/Navbar';
 import { MobileBottomBar } from './components/MobileBottomBar';
 import { Hero } from './components/Hero';
 import { Experience } from './components/Experience';
 import { SpotToggle } from './components/SpotToggle';
-import { FeaturedFavorites } from './components/FeaturedFavorites';
-import { DessertsShowcase } from './components/DessertsShowcase';
+import { PopularItems } from './components/PopularItems';
+import { BakeryShowcase } from './components/BakeryShowcase';
 import { InteractiveMenu } from './components/InteractiveMenu';
-import { CoffeeStory } from './components/CoffeeStory';
 import { ReservationSection } from './components/ReservationSection';
 import { ReviewsSection } from './components/ReviewsSection';
 import { InstagramSection } from './components/InstagramSection';
 import { LocationSection } from './components/LocationSection';
 import { Footer } from './components/Footer';
 import { OriginalMenuModal } from './components/OriginalMenuModal';
+import { CartButton } from './components/cart/CartButton';
+import { CartDrawer } from './components/cart/CartDrawer';
+import { CheckoutDrawer } from './components/cart/CheckoutDrawer';
+import { MarqueeTicker } from './components/MarqueeTicker';
+import { CustomCursor } from './components/CustomCursor';
 
 export const MainLayout: React.FC = () => {
   const [originalMenuModalOpen, setOriginalMenuModalOpen] = useState(false);
@@ -29,6 +34,9 @@ export const MainLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-cafe-amber selection:text-white">
+      {/* Custom Desktop Glow Cursor */}
+      <CustomCursor />
+
       {/* Sticky Top Header Navigation */}
       <Navbar
         onOpenBooking={scrollToReservation}
@@ -38,15 +46,15 @@ export const MainLayout: React.FC = () => {
       {/* Main Content Sections */}
       <main className="flex-grow">
         <Hero onOpenBooking={scrollToReservation} />
+        <MarqueeTicker />
         <Experience />
         <SpotToggle />
-        <FeaturedFavorites />
-        <DessertsShowcase />
+        <PopularItems />
+        <BakeryShowcase />
         <InteractiveMenu onOpenOriginalMenu={() => setOriginalMenuModalOpen(true)} />
-        <CoffeeStory />
+        <InstagramSection />
         <ReservationSection />
         <ReviewsSection />
-        <InstagramSection />
         <LocationSection />
       </main>
 
@@ -55,6 +63,11 @@ export const MainLayout: React.FC = () => {
 
       {/* Fixed Bottom Action Bar for Mobile Screens */}
       <MobileBottomBar onOpenBooking={scrollToReservation} />
+
+      {/* Cart System */}
+      <CartButton />
+      <CartDrawer />
+      <CheckoutDrawer />
 
       {/* Original Paper Menu Lightbox Modal */}
       <OriginalMenuModal
@@ -69,7 +82,9 @@ export function App() {
   return (
     <LanguageProvider>
       <ThemeProvider>
-        <MainLayout />
+        <CartProvider>
+          <MainLayout />
+        </CartProvider>
       </ThemeProvider>
     </LanguageProvider>
   );

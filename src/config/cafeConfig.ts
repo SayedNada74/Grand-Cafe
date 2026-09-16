@@ -44,6 +44,9 @@ export const cafeConfig = {
     indoorSeating: "/assets/indoor_seating.jpg",
     outdoorSeating: "/assets/outdoor_seating.jpg",
     coffeePassion: "/assets/coffee_passion.jpeg",
+    croissantPlain: "/assets/croissant_plain.jpg",
+    croissantNutella: "/assets/croissant_nutella.jpg",
+    croissantTurkey: "/assets/croissant_turkey.jpg",
   }
 };
 

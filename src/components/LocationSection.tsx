@@ -2,6 +2,8 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { cafeConfig } from '../config/cafeConfig';
 import { MapPin, Clock, Phone, MessageCircle, ExternalLink, Navigation } from 'lucide-react';
+import { ScrollReveal } from './common/ScrollReveal';
+import { Magnetic } from './common/Magnetic';
 
 export const LocationSection: React.FC = () => {
   const { t, lang, isRtl } = useLanguage();
@@ -11,18 +13,21 @@ export const LocationSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-extrabold tracking-widest text-cafe-amber uppercase mb-2 block flex items-center justify-center gap-1.5">
-            <MapPin className="w-4 h-4 text-cafe-amber" />
-            {t('loc.badge')}
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-cafe-espresso dark:text-cafe-cream">
-            {t('loc.title')}
-          </h2>
-        </div>
+        <ScrollReveal direction="up">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs font-extrabold tracking-widest text-cafe-amber uppercase mb-2 flex items-center justify-center gap-1.5">
+              <MapPin className="w-4 h-4 text-cafe-amber" />
+              {t('loc.badge')}
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-cafe-espresso dark:text-cafe-cream">
+              {t('loc.title')}
+            </h2>
+          </div>
+        </ScrollReveal>
 
         {/* Location Grid Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <ScrollReveal direction="up" delay={0.15}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Information & Details Column */}
           <div className="lg:col-span-5 bg-cafe-surface-light dark:bg-cafe-surface-dark border border-cafe-amber/20 rounded-3xl p-8 shadow-warm-lg flex flex-col justify-between">
@@ -81,17 +86,19 @@ export const LocationSection: React.FC = () => {
             {/* Direct Contact CTAs */}
             <div className="pt-8 border-t border-cafe-amber/15 space-y-3 mt-8">
               
-              {/* Google Maps Button */}
-              <a
-                href={cafeConfig.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl bg-gold-gradient text-cafe-espresso font-extrabold text-sm shadow-gold-glow hover:opacity-95 transition-all"
-              >
-                <Navigation className="w-4 h-4 fill-cafe-espresso text-cafe-espresso" />
-                <span>{t('loc.getDirections')}</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
+              {/* Google Maps Button with Magnetic pull */}
+              <Magnetic strength={0.25} className="w-full">
+                <a
+                  href={cafeConfig.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl bg-gold-gradient text-cafe-espresso font-extrabold text-sm shadow-gold-glow hover:opacity-95 transition-all"
+                >
+                  <Navigation className="w-4 h-4 fill-cafe-espresso text-cafe-espresso" />
+                  <span>{t('loc.getDirections')}</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </Magnetic>
 
               {/* Phone & WhatsApp Links */}
               <div className="grid grid-cols-2 gap-3">
@@ -139,7 +146,8 @@ export const LocationSection: React.FC = () => {
             </div>
           </div>
 
-        </div>
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>

@@ -1,100 +1,64 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Coffee, Laptop, Users, PartyPopper } from 'lucide-react';
+import { ScrollReveal } from './common/ScrollReveal';
 
 export const Experience: React.FC = () => {
-  const { t } = useLanguage();
+  const { lang } = useLanguage();
 
-  const experiences = [
+  const features = [
     {
       icon: Coffee,
-      title: t('exp.chill.title'),
-      desc: t('exp.chill.desc'),
-      color: 'from-amber-500/20 to-orange-500/10',
-      borderColor: 'group-hover:border-amber-500/40',
-      badge: '☕ Signature Roasts'
+      title: lang === 'ar' ? 'بن محمص مختص' : 'Specialty Coffee',
+      subtitle: lang === 'ar' ? 'حبوب منتقاة ومحمصة بعناية' : 'Freshly roasted premium beans',
     },
     {
       icon: Laptop,
-      title: t('exp.work.title'),
-      desc: t('exp.work.desc'),
-      color: 'from-blue-500/20 to-indigo-500/10',
-      borderColor: 'group-hover:border-blue-500/40',
-      badge: '⚡ Quiet & AC Zone'
+      title: lang === 'ar' ? 'تكييف وإنترنت سريع' : 'AC & Fast Wi-Fi',
+      subtitle: lang === 'ar' ? 'جلسة هادئة للشغل والمذاكرة' : 'Quiet workspace & study zone',
     },
     {
       icon: Users,
-      title: t('exp.gather.title'),
-      desc: t('exp.gather.desc'),
-      color: 'from-emerald-500/20 to-teal-500/10',
-      borderColor: 'group-hover:border-emerald-500/40',
-      badge: '👥 Indoor & Outdoor'
+      title: lang === 'ar' ? 'صالة مكيفة وجاردن' : 'Indoor & Garden',
+      subtitle: lang === 'ar' ? 'قعدات متنوعة للمّة والصحاب' : 'Spaces for friends & family',
     },
     {
       icon: PartyPopper,
-      title: t('exp.celebrate.title'),
-      desc: t('exp.celebrate.desc'),
-      color: 'from-rose-500/20 to-pink-500/10',
-      borderColor: 'group-hover:border-rose-500/40',
-      badge: '🎂 Birthdays & Events'
+      title: lang === 'ar' ? 'مناسبات واحتفالات' : 'Events & Celebrations',
+      subtitle: lang === 'ar' ? 'تنسيق خاص لأعياد الميلاد' : 'Special birthday setups',
     },
   ];
 
   return (
-    <section id="experience" className="py-24 bg-cafe-warm/40 dark:bg-cafe-dark relative overflow-hidden">
+    <section id="experience" className="py-8 sm:py-12 bg-cafe-warm/30 dark:bg-cafe-dark border-b border-cafe-amber/15 relative overflow-hidden transition-colors duration-300">
       
-      {/* Background Subtle Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#C68B59_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-extrabold tracking-widest text-cafe-amber uppercase mb-2 block">
-            {t('exp.badge')}
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-cafe-espresso dark:text-cafe-cream mb-4">
-            {t('exp.title')}
-          </h2>
-          <p className="text-base sm:text-lg text-cafe-muted-light dark:text-cafe-muted-dark leading-relaxed">
-            {t('exp.subtitle')}
-          </p>
-        </div>
-
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {experiences.map((item, index) => {
+        {/* Compact 4-Pillar Feature Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
+          {features.map((item, index) => {
             const IconComponent = item.icon;
             return (
-              <div
-                key={index}
-                className={`group relative p-8 rounded-2xl bg-cafe-surface-light dark:bg-cafe-surface-dark border border-cafe-amber/15 shadow-warm-sm hover:shadow-warm-md transition-all duration-300 transform hover:-translate-y-1 ${item.borderColor}`}
-              >
-                {/* Gradient Accent Overlay on Hover */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
-
-                <div className="relative z-10">
-                  {/* Top Badge */}
-                  <span className="inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full bg-cafe-amber/10 text-cafe-amber mb-6 border border-cafe-amber/20">
-                    {item.badge}
-                  </span>
-
-                  {/* Icon Container */}
-                  <div className="w-14 h-14 rounded-xl bg-cafe-warm dark:bg-cafe-card-dark border border-cafe-amber/20 flex items-center justify-center mb-6 text-cafe-amber group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-7 h-7" />
+              <ScrollReveal key={index} direction="up" delay={index * 0.08}>
+                <div className="group p-4 sm:p-5 rounded-2xl bg-cafe-surface-light dark:bg-cafe-surface-dark border border-cafe-amber/20 hover:border-cafe-gold shadow-warm-sm hover:shadow-warm-md transition-all duration-300 flex items-center gap-4">
+                  
+                  {/* Icon Box */}
+                  <div className="w-11 h-11 rounded-xl bg-cafe-amber/15 dark:bg-white/10 border border-cafe-amber/25 text-cafe-amber dark:text-cafe-gold flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:bg-cafe-amber group-hover:text-white transition-all duration-300 shadow-sm">
+                    <IconComponent className="w-5 h-5" />
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-cafe-espresso dark:text-cafe-cream mb-3">
-                    {item.title}
-                  </h3>
+                  {/* Text Details */}
+                  <div className="min-w-0">
+                    <h3 className="text-sm sm:text-base font-extrabold text-cafe-espresso dark:text-cafe-cream truncate">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-cafe-muted-light dark:text-cafe-warm/75 font-medium leading-snug mt-0.5 truncate">
+                      {item.subtitle}
+                    </p>
+                  </div>
 
-                  {/* Description */}
-                  <p className="text-sm text-cafe-muted-light dark:text-cafe-muted-dark leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
