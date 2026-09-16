@@ -351,15 +351,16 @@ export const InteractiveMenu: React.FC<InteractiveMenuProps> = ({ onOpenOriginal
                           onClick={() => toggleCategoryExpand(cat.id)}
                           aria-expanded={isExpanded}
                           aria-controls={`category-items-${cat.id}`}
-                          className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-extrabold bg-cafe-surface-light dark:bg-cafe-surface-dark border border-cafe-amber/30 text-cafe-amber hover:bg-cafe-amber hover:text-cafe-espresso dark:hover:text-cafe-espresso shadow-warm-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+                          className="group inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full text-xs font-extrabold bg-white dark:bg-white/10 border border-cafe-amber/30 dark:border-white/25 text-cafe-espresso dark:text-white hover:bg-cafe-warm dark:hover:bg-white/20 hover:border-cafe-amber dark:hover:border-cafe-gold shadow-warm-sm hover:shadow-warm-md transition-all duration-200 hover:-translate-y-0.5 active:scale-95 cursor-pointer"
                         >
                           <motion.div
                             animate={{ rotate: isExpanded ? 180 : 0 }}
                             transition={{ duration: 0.22, ease: 'easeInOut' }}
+                            className="text-cafe-amber dark:text-white transition-colors"
                           >
                             <ChevronDown className="w-4 h-4" />
                           </motion.div>
-                          <span>
+                          <span className="text-cafe-espresso dark:text-white font-extrabold transition-colors">
                             {isExpanded
                               ? t('menu.showLess')
                               : `${t('menu.viewMore')} (+${remainingCount})`}
