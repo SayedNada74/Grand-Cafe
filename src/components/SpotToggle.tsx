@@ -43,27 +43,27 @@ export const SpotToggle: React.FC = () => {
           </h2>
 
           {/* Segmented Switch Interaction */}
-          <div className="inline-flex p-1.5 rounded-full bg-cafe-warm dark:bg-cafe-surface-dark border border-cafe-amber/30 shadow-inner">
+          <div className="inline-flex p-1 sm:p-1.5 rounded-full bg-cafe-warm dark:bg-cafe-surface-dark border border-cafe-amber/30 shadow-inner max-w-full">
             <button
               onClick={() => setSpot('indoor')}
-              className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-150 hover:-translate-y-0.5 active:scale-95 ${
+              className={`inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-150 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap ${
                 spot === 'indoor'
-                  ? 'bg-gold-gradient text-cafe-espresso shadow-md shadow-cafe-gold/20'
-                  : 'text-cafe-espresso/70 dark:text-cafe-cream/70 hover:text-cafe-amber'
+                  ? 'bg-gold-gradient text-cafe-espresso shadow-md shadow-cafe-gold/20 font-extrabold'
+                  : 'text-cafe-espresso/70 dark:text-cafe-cream/70 hover:text-cafe-amber dark:hover:text-white'
               }`}
             >
-              <Snowflake className="w-4 h-4 transition-transform duration-200 group-hover:rotate-12" />
+              <Snowflake className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-200 group-hover:rotate-12" />
               <span>{t('spot.indoor')}</span>
             </button>
             <button
               onClick={() => setSpot('outdoor')}
-              className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-150 hover:-translate-y-0.5 active:scale-95 ${
+              className={`inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-150 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap ${
                 spot === 'outdoor'
-                  ? 'bg-gold-gradient text-cafe-espresso shadow-md shadow-cafe-gold/20'
-                  : 'text-cafe-espresso/70 dark:text-cafe-cream/70 hover:text-cafe-amber'
+                  ? 'bg-gold-gradient text-cafe-espresso shadow-md shadow-cafe-gold/20 font-extrabold'
+                  : 'text-cafe-espresso/70 dark:text-cafe-cream/70 hover:text-cafe-amber dark:hover:text-white'
               }`}
             >
-              <Wind className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+              <Wind className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-200 group-hover:scale-110" />
               <span>{t('spot.outdoor')}</span>
             </button>
           </div>

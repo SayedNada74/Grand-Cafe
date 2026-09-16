@@ -121,10 +121,10 @@ export const BakeryShowcase: React.FC = () => {
               </button>
             )}
 
-          {/* Scrollable Container */}
+          {/* Scrollable Container with ample vertical headroom for hover lift */}
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 -mx-4 px-4 sm:mx-0 sm:px-0"
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pt-2 pb-5 -mx-4 px-4 sm:mx-0 sm:px-0"
           >
             {bakeryItems.map((item) => {
               const totalQty = getItemQuantityInCart(item.id);
