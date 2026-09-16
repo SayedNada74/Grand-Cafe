@@ -37,8 +37,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
+    const sectionIds = ['hero', 'spot', 'popular', 'menu', 'instagram', 'location'];
+
     const handleScroll = () => {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (totalHeight > 0) {
@@ -46,6 +49,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
         setScrollProgress(Math.min(100, Math.max(0, progress)));
       }
       setIsScrolled(window.scrollY > 25);
+
+      // Scrollspy detection
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+        setActiveSection('location');
+      } else {
+        let current = 'hero';
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (el && el.offsetTop - 220 <= window.scrollY) {
+            current = id;
+          }
+        }
+        setActiveSection(current);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -54,15 +71,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
   }, []);
 
   const startNavLinks = [
-    { href: '#hero', label: t('nav.home') },
-    { href: '#spot', label: t('nav.spot') },
-    { href: '#popular', label: t('nav.popular') },
+    { href: '#hero', id: 'hero', label: t('nav.home') },
+    { href: '#spot', id: 'spot', label: t('nav.spot') },
+    { href: '#popular', id: 'popular', label: t('nav.popular') },
   ];
 
   const endNavLinks = [
-    { href: '#menu', label: t('nav.menu') },
-    { href: '#instagram', label: t('nav.instagram') },
-    { href: '#location', label: t('nav.location') },
+    { href: '#menu', id: 'menu', label: t('nav.menu') },
+    { href: '#instagram', id: 'instagram', label: t('nav.instagram') },
+    { href: '#location', id: 'location', label: t('nav.location') },
   ];
 
   return (
@@ -169,15 +186,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
 
               {/* Primary Nav Links */}
               <nav className="flex items-center gap-4 xl:gap-6">
-                {startNavLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-xs font-bold text-cafe-espresso/85 dark:text-cafe-cream/85 hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors whitespace-nowrap"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {startNavLinks.map((link) => {
+                  const isActive = activeSection === link.id;
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className={`text-xs whitespace-nowrap relative py-1 transition-all ${
+                        isActive
+                          ? 'font-extrabold text-cafe-amber dark:text-cafe-gold drop-shadow-sm'
+                          : 'font-bold text-cafe-espresso/80 dark:text-cafe-cream/80 hover:text-cafe-amber dark:hover:text-cafe-gold'
+                      }`}
+                    >
+                      {link.label}
+                      {isActive && (
+                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-cafe-amber dark:bg-cafe-gold shadow-gold-glow animate-pulse" />
+                      )}
+                    </a>
+                  );
+                })}
               </nav>
             </div>
 
@@ -204,15 +231,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
             <div className="flex items-center justify-between w-full ps-3 xl:ps-6">
               {/* Secondary Nav Links */}
               <nav className="flex items-center gap-4 xl:gap-5">
-                {endNavLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-xs font-bold text-cafe-espresso/85 dark:text-cafe-cream/85 hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors whitespace-nowrap"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {endNavLinks.map((link) => {
+                  const isActive = activeSection === link.id;
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className={`text-xs whitespace-nowrap relative py-1 transition-all ${
+                        isActive
+                          ? 'font-extrabold text-cafe-amber dark:text-cafe-gold drop-shadow-sm'
+                          : 'font-bold text-cafe-espresso/80 dark:text-cafe-cream/80 hover:text-cafe-amber dark:hover:text-cafe-gold'
+                      }`}
+                    >
+                      {link.label}
+                      {isActive && (
+                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-cafe-amber dark:bg-cafe-gold shadow-gold-glow animate-pulse" />
+                      )}
+                    </a>
+                  );
+                })}
                 <button
                   onClick={onOpenOriginalMenu}
                   className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full border border-cafe-amber/30 text-cafe-amber hover:bg-cafe-amber/15 hover:border-cafe-gold transition-all whitespace-nowrap"
@@ -261,23 +298,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
               {/* 1. Primary Core Navigation Links */}
               <div className="space-y-1">
                 {[
-                  { href: '#hero', label: t('nav.home'), icon: Home },
-                  { href: '#spot', label: t('nav.spot'), icon: BookOpen },
-                  { href: '#popular', label: t('nav.popular'), icon: Flame, badge: lang === 'ar' ? 'مميز' : 'Hot' },
-                  { href: '#menu', label: t('nav.menu'), icon: Coffee },
-                  { href: '#instagram', label: t('nav.instagram'), icon: Instagram, badge: lang === 'ar' ? 'ريلز' : 'Reels' },
-                  { href: '#location', label: t('nav.location'), icon: MapPin },
+                  { href: '#hero', id: 'hero', label: t('nav.home'), icon: Home },
+                  { href: '#spot', id: 'spot', label: t('nav.spot'), icon: BookOpen },
+                  { href: '#popular', id: 'popular', label: t('nav.popular'), icon: Flame, badge: lang === 'ar' ? 'مميز' : 'Hot' },
+                  { href: '#menu', id: 'menu', label: t('nav.menu'), icon: Coffee },
+                  { href: '#instagram', id: 'instagram', label: t('nav.instagram'), icon: Instagram, badge: lang === 'ar' ? 'ريلز' : 'Reels' },
+                  { href: '#location', id: 'location', label: t('nav.location'), icon: MapPin },
                 ].map((item) => {
                   const Icon = item.icon;
+                  const isActive = activeSection === item.id;
                   return (
                     <a
                       key={item.href}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between px-3 py-2 rounded-2xl text-sm font-bold text-cafe-espresso dark:text-cafe-cream hover:bg-cafe-amber/10 hover:text-cafe-amber transition-all group"
+                      className={`flex items-center justify-between px-3 py-2 rounded-2xl text-sm transition-all group ${
+                        isActive
+                          ? 'bg-cafe-amber/15 text-cafe-amber dark:text-cafe-gold font-extrabold shadow-sm border border-cafe-amber/30'
+                          : 'font-bold text-cafe-espresso dark:text-cafe-cream hover:bg-cafe-amber/10 hover:text-cafe-amber border border-transparent'
+                      }`}
                     >
                       <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 rounded-lg bg-cafe-warm/80 dark:bg-cafe-surface-dark border border-cafe-amber/20 flex items-center justify-center text-cafe-amber group-hover:border-cafe-gold group-hover:text-cafe-gold transition-colors">
+                        <div
+                          className={`w-7 h-7 rounded-lg flex items-center justify-center transition-colors ${
+                            isActive
+                              ? 'bg-cafe-amber text-white shadow-sm'
+                              : 'bg-cafe-warm/80 dark:bg-cafe-surface-dark border border-cafe-amber/20 text-cafe-amber group-hover:border-cafe-gold group-hover:text-cafe-gold'
+                          }`}
+                        >
                           <Icon className="w-3.5 h-3.5" />
                         </div>
                         <span>{item.label}</span>

@@ -96,13 +96,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenOriginalMenu }) => {
                 </a>
               </li>
               <li>
-                <a href="#experience" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors">
-                  {t('nav.experience')}
+                <a href="#spot" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors">
+                  {t('nav.spot')}
                 </a>
               </li>
               <li>
-                <a href="#spot" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors">
-                  {t('nav.spot')}
+                <a href="#instagram" className="hover:text-cafe-amber dark:hover:text-cafe-gold transition-colors">
+                  {t('nav.instagram')}
                 </a>
               </li>
               <li>
