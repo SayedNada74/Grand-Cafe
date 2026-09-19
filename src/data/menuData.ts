@@ -123,7 +123,7 @@ export const menuCategories: MenuCategory[] = [
       { id: "cr2", nameAr: "كرواسون نوتيلا", nameEn: "Nutella Croissant", price: 80, image: "/assets/croissant_nutella.jpg", descriptionAr: "محشو ومغطى بشوكولاتة النوتيلا الغنية واللذيذة.", descriptionEn: "Stuffed and drizzled with rich decadent Nutella." },
       { id: "cr3", nameAr: "كرواسون تركى ( فصوص رومى )", nameEn: "Smoked Turkey Croissant", price: 90, image: "/assets/croissant_turkey.jpg", descriptionAr: "محشو فصوص رومي مدخن فاخر مع صوصات خاصة.", descriptionEn: "Premium smoked turkey breast slices in a flaky croissant." },
       { id: "cr4", nameAr: "كرواسون ميكس تشيز", nameEn: "Mix Cheese Croissant", price: 90, image: "/assets/croissant_mix_cheese.jpeg", descriptionAr: "تشكيلة من أشهى أنواع الجبن الذائبة واللذيذة.", descriptionEn: "Melted blend of premium cheeses." },
-      { id: "cr5", nameAr: "كرواسون روز بيف", nameEn: "Roast Beef Croissant", price: 90, descriptionAr: "شرائح روز بيف مدخن عالية الجودة بتتبيلة خاصة.", descriptionEn: "Tender seasoned roast beef slices in warm croissant." },
+      { id: "cr5", nameAr: "كرواسون روز بيف", nameEn: "Roast Beef Croissant", price: 90, image: "/assets/croissant_roast_beef.jpg", descriptionAr: "شرائح روز بيف مدخن عالية الجودة بتتبيلة خاصة.", descriptionEn: "Tender seasoned roast beef slices in warm croissant." },
     ],
     addOns: [
       { id: 'addon-doritos', nameAr: 'دوريتوس', nameEn: 'Doritos', price: 20 },

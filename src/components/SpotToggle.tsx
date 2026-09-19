@@ -90,7 +90,7 @@ export const SpotToggle: React.FC = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full object-cover ${spot === 'outdoor' ? 'object-[center_38%]' : 'object-center'}`}
                 />
               </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-cafe-espresso/80 via-transparent to-transparent pointer-events-none" />

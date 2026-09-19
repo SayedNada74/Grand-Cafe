@@ -47,6 +47,7 @@ export const cafeConfig = {
     croissantPlain: "/assets/croissant_plain.jpg",
     croissantNutella: "/assets/croissant_nutella.jpg",
     croissantTurkey: "/assets/croissant_turkey.jpg",
+    croissantRoastBeef: "/assets/croissant_roast_beef.jpg",
   }
 };
 

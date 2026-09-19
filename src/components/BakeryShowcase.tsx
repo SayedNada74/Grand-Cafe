@@ -68,6 +68,7 @@ export const BakeryShowcase: React.FC = () => {
       case 'cr1': return 'object-[center_70%]';
       case 'cr2': return 'object-[center_55%]';
       case 'cr3': return 'object-[center_100%]';
+      case 'cr5': return 'object-[center_55%]';
       default: return 'object-center';
     }
   };
