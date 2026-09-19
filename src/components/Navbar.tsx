@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { Magnetic } from './common/Magnetic';
+import { DeveloperCredit } from './DeveloperCredit';
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -292,11 +293,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
 
         {/* Mobile Dropdown Menu: Compact, Organized & Touch-Friendly */}
         {mobileMenuOpen && (
-          <div className="pointer-events-auto mt-2 rounded-3xl bg-cafe-cream/95 dark:bg-cafe-espresso/95 backdrop-blur-2xl border border-cafe-amber/30 shadow-2xl p-4 sm:p-5 transition-all animate-fadeIn max-h-[80vh] overflow-y-auto">
-            <div className="flex flex-col gap-3.5">
+          <div className="pointer-events-auto mt-2 rounded-3xl bg-cafe-cream/95 dark:bg-cafe-espresso/95 backdrop-blur-2xl border border-cafe-amber/30 shadow-2xl p-3 sm:p-5 transition-all animate-fadeIn max-h-[calc(100dvh-70px)] sm:max-h-[88vh] overflow-y-auto">
+            <div className="flex flex-col gap-2 sm:gap-3">
 
               {/* 1. Primary Core Navigation Links */}
-              <div className="space-y-1">
+              <div className="space-y-0.5 sm:space-y-1">
                 {[
                   { href: '#hero', id: 'hero', label: t('nav.home'), icon: Home },
                   { href: '#spot', id: 'spot', label: t('nav.spot'), icon: BookOpen },
@@ -312,7 +313,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
                       key={item.href}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center justify-between px-3 py-2 rounded-2xl text-sm transition-all group ${
+                      className={`flex items-center justify-between px-3 py-1.5 sm:py-2 rounded-2xl text-xs sm:text-sm transition-all group ${
                         isActive
                           ? 'bg-cafe-amber/15 text-cafe-amber dark:text-cafe-gold font-extrabold shadow-sm border border-cafe-amber/30'
                           : 'font-bold text-cafe-espresso dark:text-cafe-cream hover:bg-cafe-amber/10 hover:text-cafe-amber border border-transparent'
@@ -320,13 +321,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
                     >
                       <div className="flex items-center gap-2.5">
                         <div
-                          className={`w-7 h-7 rounded-lg flex items-center justify-center transition-colors ${
+                          className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center transition-colors ${
                             isActive
                               ? 'bg-cafe-amber text-white shadow-sm'
                               : 'bg-cafe-warm/80 dark:bg-cafe-surface-dark border border-cafe-amber/20 text-cafe-amber group-hover:border-cafe-gold group-hover:text-cafe-gold'
                           }`}
                         >
-                          <Icon className="w-3.5 h-3.5" />
+                          <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                         </div>
                         <span>{item.label}</span>
                       </div>
@@ -337,9 +338,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
                           </span>
                         )}
                         {lang === 'ar' ? (
-                          <ChevronLeft className="w-4 h-4 text-cafe-muted-light/60 dark:text-cafe-warm/40 group-hover:text-cafe-amber transition-colors" />
+                          <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cafe-muted-light/60 dark:text-cafe-warm/40 group-hover:text-cafe-amber transition-colors" />
                         ) : (
-                          <ChevronRight className="w-4 h-4 text-cafe-muted-light/60 dark:text-cafe-warm/40 group-hover:text-cafe-amber transition-colors" />
+                          <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cafe-muted-light/60 dark:text-cafe-warm/40 group-hover:text-cafe-amber transition-colors" />
                         )}
                       </div>
                     </a>
@@ -348,8 +349,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
               </div>
 
               {/* 2. Explore More Sections (Bakery + Reviews) */}
-              <div className="pt-2.5 border-t border-cafe-amber/15">
-                <div className="text-[11px] font-bold text-cafe-muted-light dark:text-cafe-warm/60 uppercase tracking-wider mb-2 px-1">
+              <div className="pt-1.5 sm:pt-2.5 border-t border-cafe-amber/15">
+                <div className="text-[10px] sm:text-[11px] font-bold text-cafe-muted-light dark:text-cafe-warm/60 uppercase tracking-wider mb-1.5 px-1">
                   {lang === 'ar' ? 'استكشف المزيد في جراند كافيه' : 'Explore More'}
                 </div>
                 <div className="grid grid-cols-2 gap-1.5">
@@ -363,7 +364,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
                         key={sub.href}
                         href={sub.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="flex items-center gap-2 p-2 rounded-xl bg-cafe-warm/60 dark:bg-cafe-surface-dark/70 border border-cafe-amber/15 hover:border-cafe-gold/60 text-xs font-bold text-cafe-espresso dark:text-cafe-cream hover:text-cafe-amber transition-all"
+                        className="flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 rounded-xl bg-cafe-warm/60 dark:bg-cafe-surface-dark/70 border border-cafe-amber/15 hover:border-cafe-gold/60 text-xs font-bold text-cafe-espresso dark:text-cafe-cream hover:text-cafe-amber transition-all"
                       >
                         <SubIcon className="w-3.5 h-3.5 text-cafe-amber flex-shrink-0" />
                         <span className="truncate">{sub.label}</span>
@@ -374,13 +375,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
               </div>
 
               {/* 3. Action Buttons: Original Menu & Book Table */}
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-cafe-amber/15">
+              <div className="grid grid-cols-2 gap-2 pt-1.5 sm:pt-2 border-t border-cafe-amber/15">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenOriginalMenu();
                   }}
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border border-cafe-amber/30 text-cafe-amber hover:bg-cafe-amber/15 hover:border-cafe-gold transition-all text-xs font-bold"
+                  className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl border border-cafe-amber/30 text-cafe-amber hover:bg-cafe-amber/15 hover:border-cafe-gold transition-all text-xs font-bold"
                 >
                   <FileText className="w-3.5 h-3.5 flex-shrink-0" />
                   <span className="truncate">{t('nav.originalMenu')}</span>
@@ -391,7 +392,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
                     setMobileMenuOpen(false);
                     onOpenBooking();
                   }}
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-gold-gradient text-cafe-espresso font-extrabold text-xs shadow-gold-glow hover:brightness-105 active:scale-95 transition-all"
+                  className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-gold-gradient text-cafe-espresso font-extrabold text-xs shadow-gold-glow hover:brightness-105 active:scale-95 transition-all"
                 >
                   <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
                   <span className="truncate">{t('nav.bookBtn')}</span>
@@ -399,10 +400,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
               </div>
 
               {/* 4. Settings Bar: Language + Theme Switches */}
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-cafe-amber/15">
+              <div className="grid grid-cols-2 gap-2 pt-1.5 sm:pt-2 border-t border-cafe-amber/15">
                 <button
                   onClick={toggleLang}
-                  className="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-cafe-warm/80 dark:bg-cafe-surface-dark border border-cafe-amber/20 hover:border-cafe-gold/50 text-xs font-bold text-cafe-espresso dark:text-cafe-cream transition-all"
+                  className="flex items-center justify-center gap-2 py-1.5 px-3 rounded-xl bg-cafe-warm/80 dark:bg-cafe-surface-dark border border-cafe-amber/20 hover:border-cafe-gold/50 text-xs font-bold text-cafe-espresso dark:text-cafe-cream transition-all"
                   title="Switch Language"
                 >
                   <Globe className="w-3.5 h-3.5 text-cafe-amber" />
@@ -411,7 +412,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
 
                 <button
                   onClick={toggleTheme}
-                  className="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-cafe-warm/80 dark:bg-cafe-surface-dark border border-cafe-amber/20 hover:border-cafe-gold/50 text-xs font-bold text-cafe-espresso dark:text-cafe-cream transition-all"
+                  className="flex items-center justify-center gap-2 py-1.5 px-3 rounded-xl bg-cafe-warm/80 dark:bg-cafe-surface-dark border border-cafe-amber/20 hover:border-cafe-gold/50 text-xs font-bold text-cafe-espresso dark:text-cafe-cream transition-all"
                   title="Toggle Theme"
                 >
                   {isDark ? (
@@ -426,6 +427,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenOriginalMen
                     </>
                   )}
                 </button>
+              </div>
+
+              {/* Developer Credit at the end of mobile menu */}
+              <div className="pt-2 border-t border-cafe-amber/15 flex justify-center pb-0.5">
+                <DeveloperCredit align="center" direction="up" />
               </div>
 
             </div>

@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { cafeConfig } from '../config/cafeConfig';
 import { Instagram, Facebook, MapPin, Phone, MessageCircle, Heart, Globe, Sun, Moon, FileText, Clock } from 'lucide-react';
+import { DeveloperCredit } from './DeveloperCredit';
 
 interface FooterProps {
   onOpenOriginalMenu: () => void;
@@ -199,10 +200,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenOriginalMenu }) => {
 
         </div>
 
-        {/* Bottom Copyright */}
+        {/* Bottom Copyright & Developer Credit */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cafe-muted-light dark:text-cafe-warm/60">
-          <p>{t('footer.rights')}</p>
-          <p className="flex items-center gap-1">
+          <p className="order-2 sm:order-1">{t('footer.rights')}</p>
+          <div className="order-1 sm:order-2">
+            <DeveloperCredit align="center" direction="up" />
+          </div>
+          <p className="flex items-center gap-1 order-3">
             <span>Crafted with</span>
             <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
             <span>for Grand Cafe</span>
