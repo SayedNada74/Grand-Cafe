@@ -1,8 +1,18 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="ar" dir="rtl">
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    try {
+      localStorage.removeItem('grand_cafe_theme');
+      document.documentElement.classList.remove('dark');
+      var saved = localStorage.getItem('grand_cafe_theme_v2');
+      if (saved === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    } catch(e) {}
+  </script>
   <link rel="icon" type="image/jpeg" href="/assets/Logo.jpeg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="QTsHdLCIiaROweR1np2PQZHdjXmjsM-IYGJTes7do-Q" />

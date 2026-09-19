@@ -12,11 +12,11 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setThemeState] = useState<Theme>('dark');
+  const [theme, setThemeState] = useState<Theme>('light');
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem('grand_cafe_theme', newTheme);
+    localStorage.setItem('grand_cafe_theme_v2', newTheme);
     if (newTheme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
@@ -29,11 +29,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('grand_cafe_theme') as Theme | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
+    try {
+      localStorage.removeItem('grand_cafe_theme');
+    } catch (e) {}
+
+    const savedTheme = localStorage.getItem('grand_cafe_theme_v2') as Theme | null;
+    if (savedTheme === 'dark') {
       setTheme('dark');
+    } else {
+      setTheme('light');
     }
   }, []);
 

@@ -88,7 +88,7 @@ const translations: Record<string, Record<Language, string>> = {
   'bakery.badge': { ar: 'مخبوزات جراند كافيه', en: 'FRESH BAKERY & CROISSANTS' },
   'bakery.title': { ar: 'كرواسون ومخبوزات طازجة يومياً', en: 'Freshly Baked Artisanal Croissants' },
   'bakery.subtitle': { ar: 'كرواسون فرنسي هش بالزبدة الطبيعية مع تشكيلة حشوات حلو وحادق تفتح النفس.', en: 'Golden flaky French butter croissants with delicious sweet and savory gourmet fillings.' },
-  'bakery.addonNote': { ar: 'متاح أضافه دريتوس وصوص شيدر وزيتون ب ٢٠ ج.م', en: 'Add Doritos, Cheddar Sauce & Olives for 20 EGP' },
+  'bakery.addonNote': { ar: 'متاح إضافة دوريتوس وصوص شيدر وزيتون (الـ 3 مع بعض بـ 20 ج.م)', en: 'Add Doritos, Cheddar Sauce & Olives (all 3 together for 20 EGP)' },
 
   // Desserts Spotlight
   'dessert.badge': { ar: 'الحلويات المتميزة', en: 'ARTISANAL DESSERTS' },
@@ -172,7 +172,7 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Add-ons
   'addons.title': { ar: 'إضافات اختيارية', en: 'Optional Add-ons' },
-  'addons.banner': { ar: 'إضافات اختيارية: دريتوس، صوص شيدر، زيتون (٢٠ ج.م لكل إضافة)', en: 'Optional add-ons: Doritos, Cheddar Sauce, Olives (20 EGP each)' },
+  'addons.banner': { ar: 'إضافات اختيارية: دوريتوس، صوص شيدر، زيتون (الـ 3 مع بعض بـ 20 ج.م)', en: 'Optional add-ons: Doritos, Cheddar Sauce, Olives (all 3 together for 20 EGP)' },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

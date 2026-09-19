@@ -33,7 +33,7 @@ export const MainLayout: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col selection:bg-cafe-amber selection:text-white">
+    <div className="min-h-screen flex flex-col bg-cafe-cream text-cafe-espresso dark:bg-cafe-espresso dark:text-cafe-cream selection:bg-cafe-amber selection:text-white transition-colors duration-300">
       {/* Custom Desktop Glow Cursor */}
       <CustomCursor />
 

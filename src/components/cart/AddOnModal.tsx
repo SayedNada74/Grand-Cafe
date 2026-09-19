@@ -154,13 +154,18 @@ export const AddOnModal: React.FC<AddOnModalProps> = ({ isOpen, onClose, item, a
                             : 'border-cafe-amber/20 bg-cafe-warm/40 dark:bg-cafe-surface-dark hover:border-cafe-amber/50'
                         }`}
                       >
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 text-start">
                           <div className="w-8 h-8 rounded-xl bg-cafe-amber/15 border border-cafe-amber/25 flex items-center justify-center flex-shrink-0">
                             {renderAddOnIcon(addon.id)}
                           </div>
-                          <span className="text-sm font-bold text-cafe-espresso dark:text-cafe-cream">
-                            {lang === 'ar' ? addon.nameAr : addon.nameEn}
-                          </span>
+                          <div className="flex flex-col">
+                            <span className="text-sm font-bold text-cafe-espresso dark:text-cafe-cream">
+                              {lang === 'ar' ? addon.nameAr : addon.nameEn}
+                            </span>
+                            <span className="text-[11px] text-cafe-amber dark:text-cafe-gold font-semibold mt-0.5">
+                              {lang === 'ar' ? 'الـ 3 إضافات مع بعض بـ 20 ج.م فقط' : 'All 3 items together for only 20 EGP'}
+                            </span>
+                          </div>
                         </div>
 
                         <div className="flex items-center gap-3">

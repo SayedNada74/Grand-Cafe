@@ -104,11 +104,11 @@ export const menuCategories: MenuCategory[] = [
     iconName: "Cake",
     items: [
       { id: "d1", nameAr: "مولتن كيك", nameEn: "Molten Cake", price: 90, featuredDessert: true, descriptionAr: "كيك شوكولاتة غني بقلب شوكولاتة ذائبة ساخنة مع آيس كريم.", descriptionEn: "Warm chocolate cake with oozing molten chocolate center." },
-      { id: "d2", nameAr: "شوكليت كيك", nameEn: "Chocolate Cake", price: 60, featuredDessert: true, image: "/assets/chocolate_cake.jpeg", descriptionAr: "كيك الشوكولاتة الغني بطبقات الشوكولاتة البلجيكية.", descriptionEn: "Decadent multi-layer Belgian chocolate cake." },
-      { id: "d3", nameAr: "ريد فليفت", nameEn: "Red Velvet Cake", price: 60, featuredDessert: true, image: "/assets/red_velvet_cake.jpeg", descriptionAr: "كيك ريد فليفت هشة وناعمة مع كريمة الجبن التوبينج.", descriptionEn: "Soft velvet cake topped with smooth cream cheese." },
-      { id: "d4", nameAr: "تشيز كيك", nameEn: "Cheesecake", price: 60, featuredDessert: true, descriptionAr: "تشيز كيك نيويورك الكلاسيكية بطعم كريمي وغني.", descriptionEn: "Rich & creamy New York style baked cheesecake." },
-      { id: "d5", nameAr: "سان سباستيان", nameEn: "San Sebastian Cheesecake", price: 60 },
-      { id: "d6", nameAr: "براونيز", nameEn: "Chocolate Brownies", price: 60 },
+      { id: "d2", nameAr: "شوكليت كيك", nameEn: "Chocolate Cake", price: 80, featuredDessert: true, image: "/assets/chocolate_cake.jpeg", descriptionAr: "كيك الشوكولاتة الغني بطبقات الشوكولاتة البلجيكية.", descriptionEn: "Decadent multi-layer Belgian chocolate cake." },
+      { id: "d3", nameAr: "ريد فليفت", nameEn: "Red Velvet Cake", price: 80, featuredDessert: true, image: "/assets/red_velvet_cake.jpeg", descriptionAr: "كيك ريد فليفت هشة وناعمة مع كريمة الجبن التوبينج.", descriptionEn: "Soft velvet cake topped with smooth cream cheese." },
+      { id: "d4", nameAr: "تشيز كيك", nameEn: "Cheesecake", price: 80, featuredDessert: true, descriptionAr: "تشيز كيك نيويورك الكلاسيكية بطعم كريمي وغني.", descriptionEn: "Rich & creamy New York style baked cheesecake." },
+      { id: "d5", nameAr: "سان سباستيان", nameEn: "San Sebastian Cheesecake", price: 100 },
+      { id: "d6", nameAr: "براونيز", nameEn: "Chocolate Brownies", price: 80 },
       { id: "d7", nameAr: "وافل", nameEn: "Belgian Waffle", price: 60, featuredDessert: true, image: "/assets/waffle.jpeg", descriptionAr: "وافل بلجيكي مقرمش طازج يقدم مع النوتيلا وصوص الفواكه.", descriptionEn: "Crispy Golden Belgian waffle with chocolate drizzle." },
       { id: "d8", nameAr: "ميني بان كيك", nameEn: "Mini Pancakes", price: 60 },
     ]
@@ -126,9 +126,12 @@ export const menuCategories: MenuCategory[] = [
       { id: "cr5", nameAr: "كرواسون روز بيف", nameEn: "Roast Beef Croissant", price: 90, image: "/assets/croissant_roast_beef.jpg", descriptionAr: "شرائح روز بيف مدخن عالية الجودة بتتبيلة خاصة.", descriptionEn: "Tender seasoned roast beef slices in warm croissant." },
     ],
     addOns: [
-      { id: 'addon-doritos', nameAr: 'دوريتوس', nameEn: 'Doritos', price: 20 },
-      { id: 'addon-cheddar', nameAr: 'صوص شيدر', nameEn: 'Cheddar Sauce', price: 20 },
-      { id: 'addon-olives', nameAr: 'زيتون', nameEn: 'Olives', price: 20 },
+      {
+        id: 'addon-mix',
+        nameAr: 'ميكس إضافات (دوريتوس + صوص شيدر + زيتون)',
+        nameEn: 'Trio Add-ons (Doritos + Cheddar + Olives)',
+        price: 20
+      },
     ],
   },
   {
@@ -228,7 +231,7 @@ export const getFeaturedDrinks = (): MenuItem[] => {
   const drinksOrder = ["c9", "c8", "c6", "ic1", "ic2", "ic5", "ms1", "ms3", "s3"];
   const allItems: MenuItem[] = [];
   menuCategories.forEach(cat => allItems.push(...cat.items));
-  
+
   return drinksOrder
     .map(id => allItems.find(item => item.id === id))
     .filter((item): item is MenuItem => item !== undefined);
@@ -239,7 +242,7 @@ export const getFeaturedDesserts = (): MenuItem[] => {
   const dessertsOrder = ["d1", "d2", "d3", "d4", "d7"];
   const allItems: MenuItem[] = [];
   menuCategories.forEach(cat => allItems.push(...cat.items));
-  
+
   return dessertsOrder
     .map(id => allItems.find(item => item.id === id))
     .filter((item): item is MenuItem => item !== undefined);
@@ -250,7 +253,7 @@ export const getPopularItems = (): MenuItem[] => {
   const popularOrder = ["c8", "ic1", "ms3", "d2", "d3", "d7"];
   const allItems: MenuItem[] = [];
   menuCategories.forEach(cat => allItems.push(...cat.items));
-  
+
   return popularOrder
     .map(id => allItems.find(item => item.id === id))
     .filter((item): item is MenuItem => item !== undefined);
@@ -261,7 +264,7 @@ export const getBakeryFeaturedItems = (): MenuItem[] => {
   const bakeryOrder = ["cr1", "cr2", "cr3", "cr4", "cr5"];
   const allItems: MenuItem[] = [];
   menuCategories.forEach(cat => allItems.push(...cat.items));
-  
+
   return bakeryOrder
     .map(id => allItems.find(item => item.id === id))
     .filter((item): item is MenuItem => item !== undefined);
