@@ -21,6 +21,7 @@ import { CartDrawer } from './components/cart/CartDrawer';
 import { CheckoutDrawer } from './components/cart/CheckoutDrawer';
 import { MarqueeTicker } from './components/MarqueeTicker';
 import { CustomCursor } from './components/CustomCursor';
+import { Analytics } from '@vercel/analytics/react';
 
 export const MainLayout: React.FC = () => {
   const [originalMenuModalOpen, setOriginalMenuModalOpen] = useState(false);
@@ -84,6 +85,7 @@ export function App() {
       <ThemeProvider>
         <CartProvider>
           <MainLayout />
+          <Analytics />
         </CartProvider>
       </ThemeProvider>
     </LanguageProvider>
