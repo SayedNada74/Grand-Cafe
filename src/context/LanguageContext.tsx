@@ -203,6 +203,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         document.documentElement.classList.remove('lang-switching');
       }, 60);
     }, 60);
+
+    try {
+      localStorage.setItem('grand_cafe_lang_v2', newLang);
+    } catch (e) {}
   };
 
   const toggleLang = () => {
@@ -217,7 +221,16 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   useEffect(() => {
-    setLang('ar');
+    try {
+      const savedLang = localStorage.getItem('grand_cafe_lang_v2') as Language | null;
+      if (savedLang === 'en' || savedLang === 'ar') {
+        setLang(savedLang);
+      } else {
+        setLang('ar');
+      }
+    } catch (e) {
+      setLang('ar');
+    }
   }, []);
 
   return (

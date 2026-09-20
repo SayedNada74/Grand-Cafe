@@ -22,7 +22,21 @@ export const CheckoutDrawer: React.FC = () => {
   const { items, isCheckoutOpen, setCheckoutOpen, setCartOpen, totalPrice, clearCart } = useCart();
   const { t, lang, isRtl } = useLanguage();
 
-  const [form, setForm] = useState<FormData>({ name: '', phone: '', address: '', notes: '' });
+  const [form, setForm] = useState<FormData>(() => {
+    try {
+      const saved = localStorage.getItem('grand_cafe_customer_info');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return {
+          name: parsed.name || '',
+          phone: parsed.phone || '',
+          address: parsed.address || '',
+          notes: '',
+        };
+      }
+    } catch (e) {}
+    return { name: '', phone: '', address: '', notes: '' };
+  });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -121,9 +135,17 @@ export const CheckoutDrawer: React.FC = () => {
     const url = `https://api.whatsapp.com/send?phone=${cleanNumber}&text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
 
+    // Save customer info in localStorage for future orders convenience
+    try {
+      localStorage.setItem('grand_cafe_customer_info', JSON.stringify({
+        name: form.name.trim(),
+        phone: form.phone.trim(),
+        address: form.address.trim(),
+      }));
+    } catch (e) {}
+
     // Reset after sending
     clearCart();
-    setForm({ name: '', phone: '', address: '', notes: '' });
     setErrors({});
     setSubmitted(false);
     setCheckoutOpen(false);
